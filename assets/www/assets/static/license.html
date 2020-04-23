@@ -1,0 +1,84 @@
+<link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css"/>
+<link rel="stylesheet" type="text/css" href="assets/css/slick.css"/>
+<link rel="stylesheet" type="text/css" href="assets/css/swipe.css"/>
+<link rel="stylesheet" type="text/css" href="assets/css/mp3-player-button.css">
+<div class="loading">Loading&#8230;</div>
+<div class="sub-header">
+    <div class="swipe-tabs">
+
+    </div>
+</div>
+<div class="main-container">
+    <div class="swipe-tabs-container ">
+        <% _.each(categories, function(category, name){ %>
+        <div class="swipe-tab-content">
+            <div class="slide_content">
+                <% if(name==1){ %>
+                <p style="font-size:25px;">
+                    개발자: 설청호<br/>
+                    개발언어: javascript, html 5, css 3<br/>
+                    운영환경: 안드로이드 Version 5.0이상<br/>
+                    프로그램: Atom. Adroid Studio<br/>
+                </p>
+                <% }else if(name==2){ %>
+                <p style="font-size:20px;">
+
+                    저작권 증빙 자료<br/><br/>
+                    폰트: (Awesome 3.0.2) : Font Awesome CSS, LESS, and SASS files are licensed<br/>
+                    under the MIT License – http://opensource.org
+                    /licenses/mit-license.html (MIT공과대학 프리 라이센스)<br/>
+                    2) Berkeley Software Distribution(BSD) License : 버클리의 캘리포니아 대학에서 배포    하는 공개 소프트웨어의 라이선스. 아무런 제한 없이누구나 자신의 용도로 사용할 수 있도록      만들어진 것으로 라이선스 및 저작권 표시 조건 외에 굉장히 자유로운 라이선스<br/>
+                    3) GNU(Gnu is Not Unix) General Public License(GPL): 자유소프트웨어재단에서 만든 라이센스. GPL 프로그램은 어떤 목적으로, 어떤 형태로든 사용할 수 있지만 사용하거나 변경된 프로그램을 배포하는 경우 무조건 동일한 라이선스 즉, GPL로 공개해야 함.<br/>
+                    4) Apache License: 아파치소프트웨어 재단 자체에서 만든 자체적으로 만든 라이센스. 소스코드에 대한 공개 의무 등의 의무사항은 없지만 아파치 라이선스의 소스코드를 수정하여 배포하는 경우 아파치 라이선스, 버전 2.0을 꼭 포함 시켜야 하며 아파치 재단에서 만든 소프트웨어임을 밝혀야 함.<br/>
+
+                    5) Mozilla Public License(MPL): MPL의 특징은 소스코드와 실행파일의 저작권을 분리함으로써 수정한 소스코드의 경우 MPL로 공개하고 원저작자에게 수정한 부분에 대해 알려야 하지만 실행파일은 독점 라이선스로 배포가 가능한 점이다. 즉, 사용한 MPL 소프트웨어와 수정한 MPL 소프트웨어에 대한 공개의무만을 가지며 별도의 소스코드와 실행파일은 독점 라이선스를 가질 수 있음.<br/>
+                    6) Slick.js: https://github.com/kenwheeler/slick/blob/master/LICENSE (페이지 슬라이드 담당)<br/>
+                    7) Bootstrap https://v4-alpha.getbootstrap.com/about/license/  (전체적인 css, js 사용)<br/>
+                    8) Backbone.js (v1.3.3): https://github.com/jashkenas/backbone/blob/master/LICENSE(핵심 뼈대구조)<br/>
+                    9) Underscore.js: https://github.com/jashkenas/underscore/blob/master/LICENSE (자바스크립트 함수
+                    호출 간단하게하는 유틸)<br/>
+                    10) Materialize:https://github.com/Dogfalo/materialize/blob/master/LICENSE(어플리케이션
+                    레이아웃) <br/>
+                    11) Masonryhttps://masonry.desandro.com/#mit-license(어플리케이션 격자형 레이아웃 기능 <br/>
+                    12) Soundmanager2:http://www.schillmania.com/projects/soundmanager2
+                    /doc/resources/#licensing (음악 플레이기능) <br/>
+                    13) Normalize.css:https://github.com/necolas/normalize.css/blob/master/LICENSE.md
+                    (CSS 초기 초기화 담당)<br/>
+                    14) Roll A Die:https://github.com/chukwumaijem/roll-a-die (3D 주사위 애니메이션 구현)<br/>
+                    15) Cordova:https://www.apache.org/licenses/LICENSE-2.0(핵심 어플리케이션 플랫폼)<br/>
+                    16) AndroidSDKhttps://developer.android.com/studio/terms.html?hl=ko(안드로이드
+                    어플리케이션 핵심 개발도구)<br/><br/>
+                    2. 소리파일 저작권:작품설명서와 같이 첨부<br/>
+                    1) 소리파일: 김련희(일본 교토대학교 재학 중)<br/>  2) 배경음악:, 엽서동영상: 유투브 무료음원(Tupelo_Train.mp3)<br/>
+                    3) 그림: 자체제작(일러스트 cs6 version)<br/>
+                    4) 사진파일: e- mail로 저작권 확보<br/>
+                    5) 학습 UCC-동영상, 스모사진, 초상권 확보<br/>
+                    6) 일본어교사 연구회(JTA) 내용 참조 허락 메일 받음.<br/>
+
+                    <!--Game&Quiz script (boardgame.js culturequiz.js wordquiz.js)<br/>
+                     Quiz script by javascript.
+                    The MIT License (MIT)<br/>
+                    Copyright (c) 2019 kmwh0207<br/>
+                    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+                    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+                    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+-->
+                </p>
+
+                <%} %>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+    <div class="row" style="position:fixed; bottom:10px; right:10px;">
+        <div class="col s3"><a class="waves-effect waves-light btn blue" id='nextbt' >다음</a></div>
+    </div>
+</div>
+<script src="lib/slick.min.js"></script>
+<script src="assets/js/pixeldraw.js"></script>
+<script type="text/javascript">
+  PixelDraw.load('masonry', 'swipe', 'init', 'mp3-player-button', 'soundmanager2');
+  eval(initMainGrid());
+
+
+</script>

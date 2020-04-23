@@ -1,0 +1,85 @@
+<link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css"/>
+<link rel="stylesheet" type="text/css" href="assets/css/slick.css"/>
+<link rel="stylesheet" type="text/css" href="assets/css/swipe.css"/>
+<link rel="stylesheet" type="text/css" href="assets/css/mp3-player-button.css">
+<div class="loading">Loading&#8230;</div>
+<div class="sub-header">
+    <div class="swipe-tabs">
+        <div class="swipe-tab">스포츠</div>
+        <div class="swipe-tab">야구1</div>
+        <div class="swipe-tab">야구2</div>
+        <div class="swipe-tab">야구3</div>
+        <div class="swipe-tab">농구1</div>
+        <div class="swipe-tab">축구1</div>
+        <div class="swipe-tab">스모1</div>
+        <div class="swipe-tab">스모기술1</div>
+        <div class="swipe-tab">스모기술2</div>
+        <div class="swipe-tab">스모기술3</div>
+        <div class="swipe-tab">스모사진</div>
+
+    </div>
+</div>
+<div class="main-container">
+    <div class="swipe-tabs-container ">
+        <% _.each(categories, function(category, name){ %>
+        <div class="swipe-tab-content">
+            <div class="slide_content">
+                <% if (name == "1") { %>
+                <img src="assets/img/sport/pg1.png" alt="스포츠" class="mainTheme">
+                <% } if (name == "2")  { %>
+                <img src="assets/img/sport/pg2.png" alt="" class="mainTheme">
+                <% } if (name == "3")  { %>
+                <img src="assets/img/sport/pg3.png" alt="" class="mainTheme">
+                <% } if (name == "4")  { %>
+                <img src="assets/img/sport/pg4.png" alt="" class="mainTheme">
+                <% } if (name == "5")  { %>
+                <img src="assets/img/sport/pg5.png" alt="" class="mainTheme">
+                <% } if (name == "6")  { %>
+                <img src="assets/img/sport/pg6.png" alt="" class="mainTheme">
+                <% } if (name == "7")  { %>
+                <img src="assets/img/sport/pg7.png" alt="" class="mainTheme">
+                <% } if (name == "8")  { %>
+                <img src="assets/img/sport/pg8.png" alt="" class="mainTheme" onclick="play_sound(1)">
+                <% } if (name == "9")  { %>
+                <img src="assets/img/sport/pg9.png" alt="" class="mainTheme" onclick="play_sound(2)">
+                <% } if (name == "10")  { %>
+                <img src="assets/img/sport/pg10.png" alt="" class="mainTheme" onclick="play_sound(3)">
+                <% } if (name == "11")  { %>
+                <img src="assets/img/sport/pg11.png" alt="" class="mainTheme">
+                <% } %>
+                <div class="grid">
+                    <div class="grid-main-sizer"></div>
+                    <div class="gutter-sizer"></div>
+                    <div class="row">
+                        <% _.each(category, function(item, name){ %>
+                        <div class="grid-main-item" id="rows">
+                            <p class="wordPlay">
+                                <%- item.wordNum %>
+                            </p>
+                            <a id="testWord" class="waves-effect btn secondary-content green">
+                                <p class="testWord"><%- item.description %></p>
+                                <p class="answerSection"><%- item.answer%></p>
+                            </a>
+                        </div>
+                        <% }) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+    <div class="row" style="float:right;">
+        <!--<div class="col s3"><a class="waves-effect waves-light btn blue" id='nextbt' >다음</a></div>-->
+    </div>
+</div>
+<script src="lib/slick.min.js"></script>
+<script src="assets/js/pixeldraw.js"></script>
+<script type="text/javascript">
+  PixelDraw.load('masonry', 'swipe', 'init', 'mp3-player-button', 'soundmanager2');
+  eval(initMainGrid());
+
+  function play_sound(e){
+        var audio = new Audio("assets/audios/sport/"+e+".m4a");
+        audio.play();
+  }
+</script>

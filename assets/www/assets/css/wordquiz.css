@@ -1,0 +1,95 @@
+.main-container{
+    background-color: #f0f5d4;
+    height:90vh;
+    width:100%;
+}
+#chapterlist{
+    background-color: #f0f5d4;
+}
+#headimg{
+    width: 100%;
+    height: auto;
+}
+.quiz_content{
+    width: 80%;
+    height:56%;
+    margin: 10% 10% 0 10%;
+    vertical-align: middle;
+    position: relative;
+}
+#timer_{
+    width: 75vw;
+    height: 3vh;
+    width:50vw;
+}
+#start_text{
+    margin: auto;
+    width: 100%;
+    height: auto;
+    z-index:1;
+    position: absolute;
+    left:0;
+    top:0;
+}
+#quiz_text{
+    left:0;
+    top:0;
+    z-index:0;
+    width: 100%;
+    height: 20%;
+    border-bottom: 2px solid white;
+    text-align: center;
+}
+.row{
+    height:10%;
+}
+
+#sound_bt{
+    display: block;
+    width: 15%;
+    height: auto;
+    margin: 3vh auto;
+}
+
+#choice_content{
+    height: auto;
+}
+
+#choice_content *{
+    width: 100%;
+    height: 5vh;
+    border: 1px solid white;
+    -webkit-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+    font: 1.5em/0.8em 휴먼편지체;
+    line-height: 1.7;
+}
+.choice{
+    background-color: #f8f8f0;
+}
+
+.answer{
+    background-color: #00a3d2;
+}
+
+.blocker{
+    pointer-events: none;
+}
+
+#action_{
+    width: 30%;
+    position: absolute;
+    left:70%;
+    top:10%;
+    z-index:2;
+}
+
+#time_content p{
+ position:absolute;
+ margin: auto;
+}
+
+#time_content{
+    margin: 1vh;
+}
+

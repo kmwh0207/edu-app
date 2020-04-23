@@ -1,0 +1,37 @@
+.slick-initialized .swipe-tab-content {
+  position: relative;
+ }
+
+@media screen and (min-width: 767px) {
+.slick-initialized .swipe-tab-content {
+      min-height: 500px; }
+}
+
+.slick-initialized .swipe-tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  background: none;
+  border: 0;
+  color: #757575;
+  cursor: pointer;
+  text-align: center;
+  border-bottom: 2px solid transparent;
+  transition: all 0.5s; }
+  .slick-initialized .swipe-tab:hover {
+    color: #000; }
+  .slick-initialized .swipe-tab.active-tab {
+    border-bottom-color: #000;
+    color: #000;
+    font-weight: bold; }
+
+.main-container {
+  padding: 10px;
+  background: #f1f1f1;
+}
+.mainTheme {
+  width: 100%;
+}
+
+/*# sourceMappingURL=swipe.css.map */

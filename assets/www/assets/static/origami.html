@@ -1,0 +1,54 @@
+<link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css"/>
+<link rel="stylesheet" type="text/css" href="assets/css/slick.css"/>
+<link rel="stylesheet" type="text/css" href="assets/css/swipe.css"/>
+<link rel="stylesheet" type="text/css" href="assets/css/mp3-player-button.css">
+<div class="loading">Loading&#8230;</div>
+<div class="sub-header">
+    <div class="swipe-tabs">
+        <div class="swipe-tab">리라쿠스1</div>
+        <div class="swipe-tab">리라쿠스2</div>
+        <div class="swipe-tab">리라쿠스3</div>
+        <div class="swipe-tab">유카타1</div>
+        <div class="swipe-tab">유카타2</div>
+        <div class="swipe-tab">테루테루보즈1</div>
+        <div class="swipe-tab">기모노</div>
+    </div>
+</div>
+<div class="main-container">
+    <div class="swipe-tabs-container ">
+        <% _.each(categories, function(category, name){ %>
+        <div class="swipe-tab-content">
+            <div class="slide_content">
+                <img src="assets/img/origami/pg<%- name%>.png" alt="종이접기" class="mainTheme">
+                <div class="grid">
+                    <div class="grid-main-sizer"></div>
+                    <div class="gutter-sizer"></div>
+                    <div class="row">
+                        <% _.each(category, function(item, name){ %>
+                        <div class="grid-main-item" id="rows">
+                            <p class="wordPlay">
+                                <%- item.wordNum %>
+                            </p>
+                            <a id="testWord" class="waves-effect btn secondary-content green">
+                                <p class="testWord"><%- item.description %></p>
+                                <p class="answerSection"><%- item.answer%></p>
+                            </a>
+                        </div>
+                        <% }) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+    <div class="row">
+        <div class="col s8 offset-s1"><a id="movie_origami" class="waves-effect waves-light btn blue open_movie" >보너스 영상</a></div>
+        <!--<div class="col s3"><a class="waves-effect waves-light btn blue" id='nextbt' >다음</a></div>-->
+    </div>
+</div>
+<script src="lib/slick.min.js"></script>
+<script src="assets/js/pixeldraw.js"></script>
+<script type="text/javascript">
+  PixelDraw.load('masonry', 'swipe', 'init', 'mp3-player-button', 'soundmanager2');
+  eval(initMainGrid());
+</script>

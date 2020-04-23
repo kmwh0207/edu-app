@@ -1,0 +1,72 @@
+<link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css"/>
+<link rel="stylesheet" type="text/css" href="assets/css/slick.css"/>
+<link rel="stylesheet" type="text/css" href="assets/css/swipe.css"/>
+<link rel="stylesheet" type="text/css" href="assets/css/mp3-player-button.css">
+<link rel="stylesheet" type="text/css" href="assets/css/dice.css">
+<link rel="stylesheet" type="text/css" href="assets/css/boardgame.css">
+<div class="loading">Loading&#8230;</div>
+<div class="sub-header">
+    <div class="swipe-tabs">
+        <div class="swipe-tab">인사말스고로쿠</div>
+        <div class="swipe-tab">주사위스고로쿠</div>
+    </div>
+</div>
+<div class="main-container">
+    <div class="swipe-tabs-container ">
+        <% _.each(categories, function(category, name){ %>
+        <div class="swipe-tab-content">
+            <div class="slide_content">
+                <% if (name == "boardgame1") { %>
+                <img src="assets/img/boardgame/board1.png" alt="인사말스고로쿠" class="mainTheme">
+                <img class='board_sub' src="">
+                <% } if (name == "boardgame2")  { %>
+                <img src="assets/img/boardgame/board2.png" alt="주사위스고로쿠" class="mainTheme">
+                <img class='board_sub' src="">
+                <% } %>
+                <div class="player" style="color:white; position:absolute; bottom:10px; left:10px;">
+                    
+                </div>
+                <div class="grid">
+                    <div class="grid-main-sizer"></div>
+                    <div class="gutter-sizer"></div>
+                    <div class="row">
+                        <% _.each(category, function(item, name){ %>
+                        <div class="grid-main-item" id="rows">
+                            <p class="wordPlay">
+                                <%- item.wordNum %>
+                            </p>
+                            <a id="testWord" class="waves-effect btn secondary-content green">
+                                <p class="testWord"><%- item.description %></p>
+                                <p class="answerSection"><%- item.answer%></p>
+                            </a>
+                        </div>
+                        <% }) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+
+    <img id="sound_bt" onclick="play_sound()" src="assets/img/wordquiz/sound_bt.png">
+    <div class="box">
+        <span id="exp_box"><p>각 플레이어의 주사위를</p><p>굴려주세요!</p></span>
+        <div id="dice-box1"></div>
+        <span class="center_p" id="dicenum"><p>현재 위치 : </p></span>
+    </div>
+    <div class="row">
+        <div class="col s4 offset-s1 "><a class="waves-effect waves-light btn blue" onclick="rollDiceWithoutValues1()"><i class="material-icons left">cloud</i>1P주사위</a></div>
+        <div class="col s4"><a class="waves-effect waves-light btn blue" onclick="rollDiceWithoutValues2()"><i class="material-icons left">cloud</i>2P주사위</a></div>
+        <div class="col s2"><a class="waves-effect waves-light btn blue" onclick="reset_num();" >초기화</a></div>
+        <!--<div class="col s2"><a class="waves-effect waves-light btn blue" id='nextbt' >다음</a></div>-->
+    </div>
+</div>
+
+<script src="lib/slick.min.js"></script>
+<script src="assets/js/pixeldraw.js"></script>
+<script src="https://unpkg.com/roll-a-die@1.3.0/dist/roll-a-die.js"></script>
+<script src="assets/js/boardgame.js"></script>
+<script type="text/javascript">
+  PixelDraw.load('masonry', 'swipe', 'init', 'mp3-player-button', 'soundmanager2');
+  eval(initMainGrid());
+</script>

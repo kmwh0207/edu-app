@@ -1,0 +1,59 @@
+<!-- <DIV class="progress-box progress-box-default">
+     <DIV class=progress-heading>확인평가 진행률 : 10%</DIV>
+      <DIV class=progress-small>
+            <DIV role=progressbar aria-valuenow=10 aria-valuemin=0 class="progress-bar-small progress-bar-s-info" style="WIDTH: 10%" aria-valuemax=100>
+                   <SPAN class=sr-only>60% Complete</SPAN>
+             </DIV>
+       </DIV>
+</DIV> -->
+<div class="loading">Loading&#8230;</div>
+<div class="content">
+<div class="navBar blue lighten-2">
+<nav class="breadcrumb-nav">
+   <div class="nav-wrapper">
+     <div class="col s12 breadcrumb-content">
+       <a href="#/test/0" class="breadcrumb">형성평가</a>
+     </div>
+   </div>
+</nav>
+</div>
+<div class="content" style="background-color:#472166;">
+  <div class="grid">
+  <div class="grid-sizer"></div>
+  <div class="gutter-sizer"></div>
+  <div class="grid-item grid-item--width" style="color:white;">
+    <h4>한글 해석이 무엇일까요? (일본어를 클릭해보세요)</h4>
+  </div>
+    <div class="grid-item grid-item--width">
+
+  <% _.each(content, function(matters, name){ %>
+    <% _.each(matters, function(item, name){ %>
+      <% if (item.constructor == Object) { %>
+        <div class="testSection play_bt" style="padding:1hv;">
+              <a id="testWord" class="waves-effect btn green "><p class="testWord"><%- item.description %></p><p class="answerSection"><%- item.answer%></p></a>
+        </div>
+          <% } %>
+      <% }) %>
+    <% }) %>
+    </div>
+  </div>
+</div>
+  <script src="lib/slick.min.js"></script>
+  <script src="assets/js/pixeldraw.js"></script>
+  <script type="text/javascript">
+    PixelDraw.load('masonry', 'swipe', 'init');
+    eval(initGrid());
+
+    $('.play_bt').click(function(){play_audio(this);});
+
+    function play_audio(audio_src){
+      var audio = new Audio("assets/audios/finaltest/("+($(audio_src).index()+1)+").m4a");
+      audio.play();
+    }
+  </script>
+
+  <style rel="stylesheet">
+    .testWord, .answerSection{
+      text-align: left;
+    }
+  </style>

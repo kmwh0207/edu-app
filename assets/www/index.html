@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>문산중학교 일본어 교육 어플리케이션</title>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
+    <!--Import Google Icon Font-->
+    <!--Import materialize.css-->
+    <link href="assets/css/materialize.css"         type="text/css" rel="stylesheet">
+    <link href="assets/css/grid.css"                type="text/css" rel="stylesheet">
+    <link href="assets/css/slick-theme.css"         type="text/css" rel="stylesheet">
+    <link href="assets/css/slick.css"               type="text/css" rel="stylesheet">
+    <link href="assets/css/loading.css"             type="text/css" rel="stylesheet">
+    <link href="assets/css/bootstrap.min-3.3.5.css" type="text/css" rel="stylesheet">
+    <link href="assets/css/swipe.css"               type="text/css" rel="stylesheet">
+
+    <style rel="stylesheet">
+
+    a {
+      text-decoration: none;
+    }
+
+    body {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1 0 auto;
+    }
+    #appName {
+      height: 45px;
+    }
+    #in-header{
+      max-width: 1280px;
+      margin: 0 auto;
+      position: relative;
+    }
+    #startpg{
+        background-color: white;
+        background-image: url("assets/img/index/head.png"), url("assets/img/index/bg.png");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: top,top;
+        background-size: 100% 9%, 100% 100%;
+    }
+    #logoimg{
+        height:100%;
+        width:100%;
+        background-image: url("assets/img/index/headtx.png");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: top;
+        background-size:100% 100%;
+    }
+    #3d_logo_{
+        perspective: 600px;
+    }
+    #card{
+        margin-top: 1%;
+        width: 60%;
+        height: 7%;
+        position: absolute;
+        transition: transform 3s;
+        transform-style: preserve-3d;
+    }
+    .is_flip{
+        transform: rotateY(45deg);
+    }
+    .is_flip2{
+        transform: rotateY(-45deg);
+    }
+    .hidden{
+        display:none;
+    }
+    .menu_button{
+        width:24%;
+        height:3%;
+
+        background-repeat: no-repeat;
+        background-size:100% 78%;
+        font-size: 90%;
+        font-weight: 88%;
+        color: white;
+        padding: auto;
+        margin: 1% 0% 0% 2%;
+    }
+    #startpg img{
+
+    }
+    a{
+        color:#000;
+    }
+
+    .grid-item--thumnail{
+        width:100%;
+        height:100%;
+    }
+
+    @font-face{
+        font-family:'휴먼편지체';
+        font-weight: normal;
+        font-style: normal;
+        src: url('./assets/css/humanletter.TTF');
+    }
+    *{
+        font-family: 휴먼편지체;
+        font-size: 100%;
+    }
+
+
+    </style>
+</head>
+<body class="block">
+    <div id="startpg" style="position:absolute; width:100vw; height:100vh; z-index:1000">
+
+        <div id="3d_logo_">
+            <div id="card" class="">
+                <div id="logoimg"></div>
+            </div>
+        </div>
+        <a href="#"><p align="center" onclick="unlock()" class="menu_button" style="margin-top:20%; background-image: url('assets/img/index/bts.png');">UCC 회화동영상</p></a>
+        <a href="#/culture"><p align="center" onclick="unlock()" class="menu_button" style="background-image: url('assets/img/index/bts.png');">일본의 성과 종교</p></a>
+        <a href="#/picword"><p align="center" onclick="unlock()" class="menu_button" style="background-image: url('assets/img/index/bts.png');">그림단어</p></a>
+        <a href="#/adjective"><p align="center" onclick="unlock()" class="menu_button" style="background-image: url('assets/img/index/bts.png');">동사와 형용사</p></a>
+        <a href="#/transportation"><p align="center" onclick="unlock()" class="menu_button" style="background-image: url('assets/img/index/bts.png');">교통수단</p></a>
+        <a href="#/origami"><p align="center" onclick="unlock()" class="menu_button" style="background-image: url('assets/img/index/bts.png');">종이접기</p></a>
+        <a href="#/test/1"><p align="center" onclick="unlock()" class="menu_button" style="background-image: url('assets/img/index/bts.png');">형성평가</p></a>
+        <a href="#/boardgame"><p align="center" onclick="unlock()" class="menu_button" style="background-image: url('assets/img/index/bts.png');">스고로쿠</p></a>
+        <a href="#/sport"><p align="center" onclick="unlock()" class="menu_button" style="background-image: url('assets/img/index/bts.png');">스포츠</p></a>
+        <a href="#/chopsticks"><p align="center" onclick="unlock()" class="menu_button"style="background-image: url('assets/img/index/bts.png');">젓가락예절</p></a>
+        <a href="#/weather"><p align="center" onclick="unlock()" class="menu_button"style="background-image: url('assets/img/index/bts.png');">일기예보</p></a>
+        <a href="#/license"><img onclick="unlock()" style="width:25%; height:3.5%; position:absolute; top:10%; right:5%;" src="assets/img/index/bt1.png"></a>
+        <a href="#/wordquiz"><img style="width:25%; height:3.5%; position:absolute; top:15%; right:5%;" onclick="unlock()" src="assets/img/index/bt2.png"></a>
+        <a href="#/culturequiz"><img style="width:25%; height:3.5%; position:absolute; top:20%; right:5%;" onclick="unlock()" src="assets/img/index/bt3.png"></a>
+        <img id="startbt" style="width:25%; height:5%; position:absolute; bottom:2.5%; right:7.5%;" onclick="unlock()" src="assets/img/index/start.png">
+        <img id="start_exp" style="width:auto%; height:5%; position:absolute; bottom:8%; right:7%;" onclick="unlock()" src="assets/img/index/start_exp.png">
+    </div>
+<div class="navbar-fixed hidden">
+    <nav id="appName">
+        <div id="in-header" class="nav-wrapper light-green lighten-1 hidden">
+            <a href="" class="brand-logo" style="font-size: 18px;">생생일본어회화 APP</a>
+            <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+        </div>
+    </nav>
+</div>
+<ul id="slide-out" class="side-nav hidden" style="background-color: #424299; width:200px;">
+    <li class="no-padding">
+        <ul class="collapsible collapsible-accordion">
+            <li>
+                <a class="collapsible-header" style="background-color:#19214a; color: white;">일본어 학습<i class="material-icons">arrow_drop_down</i></a>
+                <div class="collapsible-body" style="background-color:#424299;">
+                    <ul>
+                        <li style="margin:1.5% auto 1.5% auto;"><a href="#"><img style="width: auto; height:100%;" src="assets/img/main_cover/bt1.png"></a></li>
+                        <li style="margin:1.5% auto 1.5% auto;"><a href="#/culture"><img style="width: auto; height:100%;" src="assets/img/main_cover/bt2.png"></a></li>
+                        <li style="margin:1.5% auto 1.5% auto;"><a href="#/picword"><img style="width: auto; height:100%; " src="assets/img/main_cover/bt3.png"></a></li>
+                        <li style="margin:1.5% auto 1.5% auto;"><a href="#/adjective"><img style="width: auto; height:100%; " src="assets/img/main_cover/bt4.png"></a></li>
+                        <li style="margin:1.5% auto 1.5% auto;"><a href="#/transportation"><img style="width: auto; height:100%; " src="assets/img/main_cover/bt5.png"></a></li>
+                        <li style="margin:1.5% auto 1.5% auto;"><a href="#/origami"><img style="width: auto; height:100%; " src="assets/img/main_cover/bt6.png"></a></li>
+                        <li style="margin:1.5% auto 1.5% auto;"><a href="#/boardgame"><img style="width: auto; height:100%; " src="assets/img/main_cover/bt7.png"></a></li>
+                        <li style="margin:1.5% auto 1.5% auto;"><a href="#/sport"><img style="width: auto; height:100%;" src="assets/img/main_cover/bt8.png"></a></li>
+                        <li style="margin:1.5% auto 1.5% auto;"><a href="#/chopsticks"><img style="width: auto; height:100%; " src="assets/img/main_cover/bt9.png"></a></li>
+                        <li style="margin:1.5% auto 1.5% auto;"><a href="#/weather"><img style="width: auto; height:100%; " src="assets/img/main_cover/bt10.png"></a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </li>
+    <li class="no-padding">
+        <ul class="collapsible collapsible-accordion">
+            <li>
+                <a class="collapsible-header" style="background-color:#19214a; color: white; margin: 2% auto;">학습 마무리<i class="material-icons">arrow_drop_down</i></a>
+                <div class="collapsible-body" style="background-color:#424299;">
+                    <ul>
+                        <li style="margin:1.5% 25%;"><a href="#/test/2"><img style="width: auto; height:100%;" src="assets/img/main_cover/bt11.png"></a></li>
+                        <li style="margin:1.5% 25%;"><a href="#/test/1"><img style="width: auto; height:100%; " src="assets/img/main_cover/bt12.png"></a></li>
+                        <li style="margin:1.5% auto 1.5% auto;"><a href="#/license"><img style="width: auto; height:100%;" src="assets/img/main_cover/bt13.png"></a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </li>
+
+</ul>
+
+<section id="main" class=""></section>
+
+<footer class="page-footer light-green lighten-1">
+    <div class="footer-copyright">
+        <div class="container">
+            © 2019 Copyright 설청호
+        </div>
+    </div>
+</footer>
+
+
+<!-- Modal -->
+<div class="modal fade" id="movieModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content" id="modal_content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" id="movietitle"></h4>
+            </div>
+            <div class="modal-body">
+                <p id="moviecontent"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- initialize JS -->
+<script src="lib/jquery-3.1.1.min.js"></script>
+<script src="lib/underscore.js"></script>
+<script src="lib/backbone.js"></script>
+<script src="lib/backbone.localstorage.js"></script>
+<script src="models/model.js" ></script>
+<script src="collections/collection.js" ></script>
+<script src="views/view.js" ></script>
+<script src="routers/router.js" ></script>
+<script src="app.js"></script>
+
+<!-- extra component -->
+<script src="assets/js/materialize.min.js"></script>
+<script src="assets/js/materialize_handler.js" ></script>
+
+<script src="assets/js/bootstrap-3.3.5.min.js"></script>
+<script>
+var logo_effect;
+function unlock(){
+    $(".hidden").removeClass("hidden");
+    $("#startpg").addClass("hidden");
+    $('#container').off('scroll touchmove mousewheel');
+    audio.pause();
+    $("#startbt").clearQueue();
+    clearTimeout(logo_effect);
+}
+
+var windowHeight = $(window).height();
+var lineHeight = $('#start_exp').height();
+
+var movepx_a = windowHeight-(lineHeight+70);
+var movepx_b = windowHeight-(lineHeight+60);
+
+//please add movebt() stop function
+function movebt() {
+    if($('#start_exp').is(":hidden")){
+
+    }else{
+         $("#start_exp").animate({top:movepx_a},1000).animate({top:movepx_b},{duration: 300, complete: movebt});
+    }
+
+}
+
+function is_flip_anim(){
+    logo_effect=setTimeout(function(){
+	    $("#card").addClass("is_flip");
+	    $("#card").removeClass("is_flip2");
+	    stop_flip_anim();
+	},3000);
+
+}
+
+function stop_flip_anim(){
+    logo_effect=setTimeout(function(){
+	    $("#card").removeClass("is_flip");
+	    $("#card").addClass("is_flip2");
+	    is_flip_anim();
+	},3000);
+}
+
+var audio;
+function play_audio(){
+    audio = new Audio("assets/audios/mainbgm.mp3");
+    audio.play();
+}
+
+(function(){
+    movebt();
+    is_flip_anim();
+    play_audio();
+    $('#startpg').on('scroll touchmove mousewheel', function(event) {
+      event.preventDefault();
+      event.stopPropagation();
+      return false;
+    });
+})();
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css"/>
+<link rel="stylesheet" type="text/css" href="assets/css/slick.css"/>
+<link rel="stylesheet" type="text/css" href="assets/css/swipe.css"/>
+<link rel="stylesheet" type="text/css" href="assets/css/mp3-player-button.css">
+<div class="loading">Loading&#8230;</div>
+<div class="sub-header">
+  <div class="swipe-tabs">
+    <div class="swipe-tab">확인학습 1</div>
+    <div class="swipe-tab">확인학습 2</div>
+    <div class="swipe-tab">확인학습 3</div>
+    <div class="swipe-tab">확인학습 4</div>
+    <div class="swipe-tab">확인학습 5</div>
+    <div class="swipe-tab">확인학습 6</div>
+  </div>
+</div>
+<div class="main-container">
+  <div class="swipe-tabs-container ">
+    <% _.each(categories, function(category, name){ %>
+    <div class="swipe-tab-content">
+      <div class="slide_content">
+        <% if (name == "checker1") { %>
+        <img src="assets/img/checker/checker1.png" alt="침실표지" class="mainTheme">
+        <h4>1. 다음 장면에서 할 수 있는 인사말을 모두 골라 쓰시오.</h4><br /><h5>정답확인</h5>
+        <% } if (name == "checker2")  { %>
+        <img src="assets/img/checker/checker2.png" alt="싱크대표지" class="mainTheme">
+        <h4>2. 다음 장면에서 말풍선에 들어갈 표현은?</h4><br /><h5>정답확인</h5>
+        <% } if (name == "checker3")  { %>
+        <img src="assets/img/checker/checker3.png" alt="책상표지" class="mainTheme">
+        <h4>3. 위 그림을 보고 추론할 수 있는 문장을 고르시오.</h4><br /><h5>정답확인</h5>
+        <% } if (name == "checker4") {  %>
+        <img src="assets/img/checker/checker4.png" alt="아침표지" class="mainTheme">
+        <h4>4. 물음에 대한 답을 말하시오.</h4><br /><h5>정답확인</h5>
+        <% } if (name == "checker5") { %>
+        <img src="assets/img/checker/checker5.png" alt="목욕탕표지" class="mainTheme">
+        <h4>5. 위 그림을 보고 추론할 수 있는 단어를 쓰시오.</h4><br /><h4>정답확인</h4>
+        <% } if (name == "checker6") { %>
+        <img src="assets/img/checker/checker6.png" alt="세탁기표지" class="mainTheme">
+        <h4>6. 식사 때 하는 인사 표현으로 말풍선에 들어갈 표현은?</h4><br /><h5>정답확인</h5>
+        <% } %>
+        <div class="grid">
+          <div class="grid-main-sizer"></div>
+          <div class="gutter-sizer"></div>
+          <div class="row">
+            <% _.each(category, function(item, name){ %>
+            <div class="col s10 offset-s1" id="rows">
+              <p class="wordPlay">
+                <%- item.wordNum %>
+              </p>
+              <a id="testWord" class="waves-effect btn secondary-content green">
+                <p class="testWord"><%- item.description %></p>
+                <p class="answerSection"><%- item.answer%></p>
+              </a>
+            </div>
+            <% }) %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+</div>
+<script src="lib/slick.min.js"></script>
+<script src="assets/js/pixeldraw.js"></script>
+<script type="text/javascript">
+  PixelDraw.load('masonry', 'swipe', 'init', 'mp3-player-button', 'soundmanager2');
+  eval(initMainGrid());
+</script>

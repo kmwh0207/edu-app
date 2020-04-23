@@ -1,0 +1,35 @@
+  <div class="loading">Loading&#8230;</div>
+  <div class="content">
+  <div class="navBar light-green lighten-2">
+  <nav class="breadcrumb-nav">
+     <div class="nav-wrapper">
+       <div class="col s12 breadcrumb-content">
+         <a href="#/list/0" class="breadcrumb">상황별 일본어 회화</a>
+         <% _.each(result, function(model, item){ %>
+           <% if (item == 0) { %>
+         <a href="<%- model.get("categoryNum") %>" class="breadcrumb"><%- model.get("category")%></a>
+       </div>
+         <% } %>
+       <% }); %>
+     </div>
+  </nav>
+  </div>
+  <div class="grid">
+  <div class="grid-sizer"></div>
+  <div class="gutter-sizer"></div>
+  <% _.each(result, function(model){ %>
+      <div class="grid-item grid-item--videolist grid-item--row grid-item--height2">
+          <a href="<%- model.get("url") %>">
+              <img class="grid-item--thumnail" src="<%- model.get("imgSrc") %>"/>
+              <div class="title"><%- model.get("title") %></div>
+          </a>
+
+      </div>
+    <% }); %>
+      </div>
+  </div>
+  <script src="assets/js/pixeldraw.js"></script>
+  <script type="text/javascript">
+    PixelDraw.load('masonry', 'init');
+    eval(initGrid());
+  </script>

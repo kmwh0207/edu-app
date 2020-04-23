@@ -1,0 +1,45 @@
+<link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css"/>
+<link rel="stylesheet" type="text/css" href="assets/css/slick.css"/>
+<link rel="stylesheet" type="text/css" href="assets/css/swipe.css"/>
+<link rel="stylesheet" type="text/css" href="assets/css/mp3-player-button.css">
+<div class="loading">Loading&#8230;</div>
+<div class="sub-header">
+  <div class="swipe-tabs">
+    <div class="swipe-tab">과일</div>
+    <div class="swipe-tab">스포츠</div>
+    <div class="swipe-tab">음식</div>
+    <div class="swipe-tab">교통수단</div>
+  </div>
+</div>
+  <div class="swipe-tabs-container ">
+    <% _.each(categories, function(category, name){ %>
+      <div class="swipe-tab-content">
+        <div class="content">
+        <div class="grid">
+        <div class="grid-sizer"></div>
+        <div class="gutter-sizer"></div>
+          <% _.each(category, function(item, name){ %>
+            <div>
+              <div class="grid-item grid-item--height2">
+                <p class="wordPlay">
+                <a href="<%- item.audioSrc %>" id="<%- item.soundId%>" class="sm2_button" title="Play &quot;coins&quot;"></a>
+                <img class="imgList" src="<%- item.imgSrc %>" alt="">
+                </p>
+                <div class="circle" id="<%- item.circleId %>">
+                  <p class="blindword" id="<%- item.QnA %>">단어확인</p>
+                  <p class="word_test" id="<%- item.wordtestId %>"><%-item.word%></p>
+                </div>
+              </div>
+            </div>
+          <% }) %>
+          </div>
+      </div>
+    </div>
+  <% }) %>
+</div>
+  <script src="lib/slick.min.js"></script>
+  <script src="assets/js/pixeldraw.js"></script>
+  <script type="text/javascript">
+    PixelDraw.load('masonry', 'swipe', 'init', 'mp3-player-button', 'soundmanager2');
+    eval(initGrid());
+  </script>

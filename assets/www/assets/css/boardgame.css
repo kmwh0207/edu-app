@@ -1,0 +1,24 @@
+.board_sub{
+    position:absolute;
+    top:0;
+    left:0;
+    width: 60%;
+    height: 60%;
+    visibility:hidden;
+    z-index:1;
+    margin: 20%;
+}
+.mainTheme{
+    margin:0px;
+    padding:0px;
+    position: relative;
+    top:0;
+    left:0;
+    z-index:0;
+}
+#sound_bt{
+    display: block;
+    width: 12%;
+    height: auto;
+    margin: 1vh auto;
+}

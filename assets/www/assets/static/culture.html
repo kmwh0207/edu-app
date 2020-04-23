@@ -1,0 +1,120 @@
+<div class="sub-header">
+  <div class="swipe-tabs">
+    <div class="swipe-tab">일본문화</div>
+    <div class="swipe-tab">일본의 명승지</div>
+    <div class="swipe-tab">일본의 종교</div>
+  </div>
+</div>
+  <div class="swipe-tabs-container">
+    <div class="swipe-tab-content">
+      <div class="content">
+      <div class="grid">
+      <div class="grid-sizer"></div>
+      <div class="gutter-sizer"></div>
+      <% _.each(categories, function(category, name){ %>
+        <% if (name == "traditionalCulture") { %>
+          <% _.each(category, function(item, name){ %>
+              <div>
+                <a class="open_culture" id="title<%- item.titleNum%>">
+                  <div class="grid-item grid-item--thumbList <%- item.gridClass%>">
+                    <img src=<%- item.imgSrc%> style="width:100%;">
+                    <% if (item.gridClass == 'grid-item--height3') { %>
+                      <div class="title title-revised"><%- item.title %></div>
+                    <% } else { %>
+                      <div class="title"><%- item.title %></div>
+                    <% } %>
+                  </div>
+                </a>
+              </div>
+          <% }) %>
+          </div>
+        <% } %>
+      <% }) %>
+     </div>
+   </div>
+    <div class="swipe-tab-content">
+      <div class="content">
+      <div class="grid">
+      <div class="grid-sizer"></div>
+      <div class="gutter-sizer"></div>
+      <% _.each(categories, function(category, name){ %>
+        <% if (name == "scenicSpot") { %>
+          <% _.each(category, function(item, name){ %>
+              <div>
+                <a class="open" id="title<%- item.titleNum%>">
+                  <div class="grid-item grid-item--thumbList <%- item.gridClass%>">
+                    <img src=<%- item.imgSrc%>>
+                    <div class="title"><%- item.title%></div>
+                  </div>
+                </a>
+              </div>
+          <% }) %>
+          </div>
+        <% } %>
+      <% }) %>
+     </div>
+   </div>
+    <div class="swipe-tab-content">
+      <div class="content">
+      <div class="grid">
+      <div class="grid-sizer"></div>
+      <div class="gutter-sizer"></div>
+      <% _.each(categories, function(category, name){ %>
+        <% if (name == "traditionalReligion") { %>
+          <% _.each(category, function(item, name){ %>
+              <div>
+                <a class="open" id="title<%- item.titleNum%>">
+                  <div class="grid-item grid-item--thumbList <%- item.gridClass%>">
+                    <img src=<%- item.imgSrc%>>
+                    <div class="title"><%- item.title%></div>
+                  </div>
+                </a>
+              </div>
+          <% }) %>
+          </div>
+        <% } %>
+      <% }) %>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="defaultModal" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content" id="modal_content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title" id="title"></h4>
+      </div>
+      <div class="modal-body">
+        <p id="content"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- longModal -->
+<div class="modal fade" id="longModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" id="modal_content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title" id="longModalTitle"></h4>
+      </div>
+      <div class="modal-body" id="longModalContent"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="lib/slick.min.js"></script>
+<script src="assets/js/bootstrap-3.3.5.min.js"></script>
+<!-- <script src="assets/js/bootstrap-modalmanager.js"></script> -->
+<script src="assets/js/pixeldraw.js"></script>
+<script type="text/javascript">
+  PixelDraw.load('masonry', 'swipe', 'init');
+  eval(initGrid());
+</script>

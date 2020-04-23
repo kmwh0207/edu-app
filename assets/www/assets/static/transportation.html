@@ -1,0 +1,79 @@
+<link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css"/>
+<link rel="stylesheet" type="text/css" href="assets/css/slick.css"/>
+<link rel="stylesheet" type="text/css" href="assets/css/swipe.css"/>
+<link rel="stylesheet" type="text/css" href="assets/css/mp3-player-button.css">
+<div class="loading">Loading&#8230;</div>
+<div class="sub-header">
+    <div class="swipe-tabs">
+        <div class="swipe-tab">교통수단</div>
+        <div class="swipe-tab">교통수단 소개</div>
+        <div class="swipe-tab">신칸센</div>
+        <div class="swipe-tab">전차</div>
+        <!--<div class="swipe-tab">전차노선도</div>-->
+        <div class="swipe-tab">택시</div>
+        <div class="swipe-tab">버스예절1</div>
+        <div class="swipe-tab">버스예절2</div>
+        <div class="swipe-tab">버스예절3</div>
+        <div class="swipe-tab">버스예절4</div>
+    </div>
+</div>
+<div class="main-container">
+    <div class="swipe-tabs-container ">
+        <% _.each(categories, function(category, name){ %>
+        <div class="swipe-tab-content">
+            <div class="slide_content">
+                <% if (name == "1") { %>
+                <img src="assets/img/transportation/pg1.png" alt="교통수단" class="mainTheme">
+                <% } if (name == "2")  { %>
+                <img src="assets/img/transportation/pg2.png" alt="" class="mainTheme">
+                <% } if (name == "3")  { %>
+                <img src="assets/img/transportation/pg3.png" alt="" class="mainTheme">
+                <% } if (name == "4")  { %>
+                <img src="assets/img/transportation/pg4.png" alt="" class="mainTheme">
+                <% } if (name == "6")  { %>
+                <img src="assets/img/transportation/pg6.png" alt="" class="mainTheme">
+                <% } if (name == "7")  { %>
+                <img onclick="play_audio();" src="assets/img/busmanners/pg<%- name -6%>.png" alt="버스예절" class="mainTheme">
+                <% } if (name == "8")  { %>
+                <img onclick="play_audio();" src="assets/img/busmanners/pg<%- name -6%>.png" alt="버스예절" class="mainTheme">
+                <% } if (name == "9")  { %>
+                <img onclick="play_audio();" src="assets/img/busmanners/pg<%- name -6%>.png" alt="버스예절" class="mainTheme">
+                <% } if (name == "10")  { %>
+                <img onclick="play_audio();" src="assets/img/busmanners/pg<%- name -6%>.png" alt="버스예절" class="mainTheme">
+                <% } %>
+                <div class="grid">
+                    <div class="grid-main-sizer"></div>
+                    <div class="gutter-sizer"></div>
+                    <div class="row">
+                        <% _.each(category, function(item, name){ %>
+                        <div class="grid-main-item" id="rows">
+                            <p class="wordPlay">
+                                <%- item.wordNum %>
+                            </p>
+                            <a id="testWord" class="waves-effect btn secondary-content green">
+                                <p class="testWord"><%- item.description %></p>
+                                <p class="answerSection"><%- item.answer%></p>
+                            </a>
+                        </div>
+                        <% }) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+    <div class="row" style="float:right;">
+        <!--<div class="col s3"><a class="waves-effect waves-light btn blue" id='nextbt' >다음</a></div>-->
+    </div>
+</div>
+<script src="lib/slick.min.js"></script>
+<script src="assets/js/pixeldraw.js"></script>
+<script type="text/javascript">
+  PixelDraw.load('masonry', 'swipe', 'init', 'mp3-player-button', 'soundmanager2');
+  eval(initMainGrid());
+
+  function play_audio(){
+    var audio = new Audio("assets/audios/busmanners/"+(boardset-4)+".m4a");
+    audio.play();
+  }
+</script>

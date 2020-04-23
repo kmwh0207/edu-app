@@ -1,0 +1,110 @@
+<link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css"/>
+<link rel="stylesheet" type="text/css" href="assets/css/slick.css"/>
+<link rel="stylesheet" type="text/css" href="assets/css/swipe.css"/>
+<link rel="stylesheet" type="text/css" href="assets/css/mp3-player-button.css">
+<div class="loading">Loading&#8230;</div>
+<div class="sub-header">
+    <div class="swipe-tabs">
+        <div class="swipe-tab">동사 1</div>
+        <div class="swipe-tab">동사 2</div>
+        <div class="swipe-tab">동사 3</div>
+        <div class="swipe-tab">동사 4</div>
+        <div class="swipe-tab">동사 5</div>
+        <div class="swipe-tab">동사 6</div>
+        <div class="swipe-tab">동사 7</div>
+        <div class="swipe-tab">동사 8</div>
+        <div class="swipe-tab">동사 9</div>
+        <div class="swipe-tab">형용사 1</div>
+        <div class="swipe-tab">형용사 2</div>
+        <div class="swipe-tab">형용사 3</div>
+        <div class="swipe-tab">형용사 4</div>
+        <div class="swipe-tab">형용사 5</div>
+        <div class="swipe-tab">형용사 6</div>
+        <div class="swipe-tab">형용사 7</div>
+        <div class="swipe-tab">형용사 8</div>
+        <div class="swipe-tab">형용사 9</div>
+    </div>
+</div>
+<div class="main-container">
+    <div class="swipe-tabs-container ">
+        <% _.each(categories, function(category, name){ %>
+        <div class="swipe-tab-content">
+            <div class="slide_content">
+                <% if (name == "verb1") { %>
+                <img src="assets/img/verb/pg1.png" alt="동사" class="mainTheme">
+                <% } if (name == "verb2")  { %>
+                <img src="assets/img/verb/pg2.png" alt="동사" class="mainTheme">
+                <% } if (name == "verb3")  { %>
+                <img src="assets/img/verb/pg3.png" alt="동사" class="mainTheme">
+                <% } if (name == "verb4")  { %>
+                <img src="assets/img/verb/pg4.png" alt="동사" class="mainTheme">
+                <% } if (name == "verb5")  { %>
+                <img src="assets/img/verb/pg5.png" alt="동사" class="mainTheme">
+                <% } if (name == "verb6")  { %>
+                <img src="assets/img/verb/pg6.png" alt="동사" class="mainTheme">
+                <% } if (name == "verb7")  { %>
+                <img src="assets/img/verb/pg7.png" alt="동사" class="mainTheme">
+                <% } if (name == "verb8")  { %>
+                <img src="assets/img/verb/pg8.png" alt="동사" class="mainTheme">
+                <% } if (name == "verb9")  { %>
+                <img src="assets/img/verb/pg9.png" alt="동사" class="mainTheme">
+                <% } if (name == "adjective1")  { %>
+                <img src="assets/img/adjective/pg1.png" alt="날씨" class="mainTheme">
+                <% } if (name == "adjective2")  { %>
+                <img src="assets/img/adjective/pg2.png" alt="가격" class="mainTheme">
+                <% } if (name == "adjective3")  { %>
+                <img src="assets/img/adjective/pg3.png" alt="상태" class="mainTheme">
+                <% } if (name == "adjective4") {  %>
+                <img src="assets/img/adjective/pg4.png" alt="아침표지" class="mainTheme">
+                <% } if (name == "adjective5") {  %>
+                <img src="assets/img/adjective/pg5.png" alt="양" class="mainTheme">
+                <% } if (name == "adjective6") {  %>
+                <img src="assets/img/adjective/pg6.png" alt="품질" class="mainTheme">
+                <% } if (name == "adjective7") {  %>
+                <img src="assets/img/adjective/pg7.png" alt="거리" class="mainTheme">
+                <% } if (name == "adjective8") { %>
+                <img src="assets/img/adjective/pg8.png" alt="외모" class="mainTheme">
+                <% } if (name == "adjective9") { %>
+                <img src="assets/img/adjective/pg9.png" alt="상황" class="mainTheme">
+                <% } %>
+                <div class="grid">
+                    <div class="grid-main-sizer"></div>
+                    <div class="gutter-sizer"></div>
+
+                    <div class="row">
+                        <!--버그 발생으로 rows 임시조치-->
+                        <div class="col s1" id="rows"></div>
+                        <% _.each(category, function(item, name){ %>
+                        <div class="col s5" id="rows">
+                            <p class="wordPlay">
+                                <%- item.wordNum %>
+                            </p>
+                            <a data-link="<%-item.audioSrc%>" id="testWord" class="waves-effect_blue btn secondary-content green play_bt">
+                                <p class="testWord"><%- item.description %></p>
+                                <p class="answerSection"><%- item.answer%></p>
+                            </a>
+                        </div>
+                        <% }) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+    <div class="row" style="float:right;">
+        <!--<div class="col s3"><a class="waves-effect waves-light btn blue" id='nextbt' >다음</a></div>-->
+    </div>
+</div>
+<script src="lib/slick.min.js"></script>
+<script src="assets/js/pixeldraw.js"></script>
+<script type="text/javascript">
+  PixelDraw.load('masonry', 'swipe', 'init', 'mp3-player-button', 'soundmanager2');
+  eval(initMainGrid());
+
+  $('.play_bt').click(function(){play_audio(this);});
+
+  function play_audio(audio_src){
+    var audio = new Audio($(audio_src).attr('data-link'));
+    audio.play();
+  }
+</script>
